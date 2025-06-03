@@ -4,7 +4,7 @@ import './App.css'
 function App() {
 
   return (
-    <>goodReads</>
+    <div class="bg-sky-950 ">goodReads</div>
   )
 }
 
