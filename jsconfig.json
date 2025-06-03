@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            //"src/*": ["./src/*"],
+            "Components/*": ["./src/Components/*"],
+            "Pages/*": ["./src/Pages/*"],
+            "Assets/*": ["./src/Assets/*"],
+            "Redux/*": ["./src/Redux/*"],
+            "Layouts/*": ["./src/Layouts/*"],
+            "Configs/*": ["./src/Configs/*"],
+            "Routes/*": ["./src/Routes/*"],
+            "Helpers/*": ["./src/Helpers/*"]
+            
+            
+        }
+    }
+}
