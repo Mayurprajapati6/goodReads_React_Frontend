@@ -1,4 +1,5 @@
 import Logo from 'Assets/Images/logo-color.png';
+import { Link } from "react-router";
 
 
 function Home() {
@@ -25,9 +26,13 @@ function Home() {
                     </div>
 
                     <div>
-                        <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded text-xl px-5 py-2 text-center me-2 mb-2">REGISTER</button>
+                        <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded text-xl px-5 py-2 text-center me-2 mb-2">
+                            <Link to="/signup">REGISTER</Link>
+                        </button>
 
-                        <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded text-xl px-5 py-2 text-center me-2 mb-2">LOGIN</button>
+                        <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded text-xl px-5 py-2 text-center me-2 mb-2">
+                            <Link to="/login">LOGIN</Link>
+                        </button>
                     </div>
 
                     
