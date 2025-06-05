@@ -1,6 +1,26 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Signin() {
+
+    const [signinDetails, setSignInDetails] = useState({
+        email: '',
+        password: '',
+    });
+
+    function handleFormChange(e) {
+        const {name,value} = e.target;
+        setSignInDetails({
+            ...signinDetails,
+            [name]: value
+        });
+    }
+
+    function onFormSubmit(e) {
+        e.preventDefault();
+        console.log(signinDetails)
+    }
+
     return(
         <div className="h-[100vh] flex flex-col items-center justify-center">
             <div>
@@ -19,23 +39,29 @@ export default function Signin() {
             </div>
 
             <div className="w-full">
-                <form className="flex flex-col justify-center items-center w-3/4 mx-auto" autoComplete="false">
+                <form onSubmit={onFormSubmit} className="flex flex-col justify-center items-center w-3/4 mx-auto" autoComplete="false">
                     
-                    <div className="my-5 w-1/3">
+                    <div className="my-5 w-1/3 text-black">
                         <input 
+                            autoComplete="off"
                             type="email"
                             placeholder="email..."
                             className="px-8 py-3 bg-white placeholder-black placeholder-opacity-0 w-full" 
-                        
+                            name="email"
+                            onChange={handleFormChange}
+                            value={signinDetails.email}
                         />
                     </div>
 
-                    <div className="my-5 w-1/3">
+                    <div className="my-5 w-1/3 text-black">
                         <input 
+                            autoComplete="off"
                             type="password"
                             placeholder="password..."
                             className="px-8 py-3 bg-white placeholder-black placeholder-opacity-0 w-full" 
-                        
+                            name="password"
+                            onChange={handleFormChange}
+                            value={signinDetails.password}
                         />
                     </div>
 
