@@ -1,6 +1,23 @@
-import axios from "axios";
+import axios from 'axios';
 
-const instance = axios.create();
-instance.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
+const axiosInstance = axios.create({
+  baseURL: '/api/v1',  // Use relative URL to work with your Vite proxy
+  timeout: 5000,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
 
-export default instance;
+// Add response interceptor for better error handling
+axiosInstance.interceptors.response.use(
+  response => response,
+  error => {
+    // Handle network errors better
+    if (!error.response) {
+      console.error('Network error detected');
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default axiosInstance;
