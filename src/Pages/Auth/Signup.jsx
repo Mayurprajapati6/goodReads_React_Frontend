@@ -22,6 +22,14 @@ export default function Signup() {
             [name]: value
         });
     }
+
+    function resetForm() {
+        setSignUpDetails({
+            email: '',
+            password: '',
+            username: '',
+        });
+    }
     
     async function onFormSubmit(e) {
         e.preventDefault();
@@ -32,16 +40,11 @@ export default function Signup() {
             return;
         }
         
-        try {
-            console.log("Submitting signup data:", signupDetails);
-            const result = await dispatch(signup(signupDetails)).unwrap();
-            
-            // If signup was successful, redirect to home or dashboard
-            
-        } catch (err) {
-            // Error is handled in the AuthSlice, but we can add additional handling here
-            console.log("Signup error:", err);
+        const response = await dispatch(signup(signupDetails));
+        if(response?.payload?.data) {
+            navigate("/signin");
         }
+        resetForm();
     }
 
     return(
